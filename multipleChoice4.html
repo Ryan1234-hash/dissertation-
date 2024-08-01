@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Choice Section 4</title>
+    <style>
+        body {
+            background-color: #FFFDD0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        header {
+            font-size: 2em;
+            color: blue;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .content {
+            font-size: 1.5em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .question-box, .answer-box, .feedback {
+            font-size: 1em;
+            color: black;
+            text-align: center;
+            margin-bottom: 20px;
+            width: 80%;
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .feedback {
+            display: none;
+        }
+        .next-button {
+            text-decoration: none;
+            color: white;
+            background-color: blue;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>Social Engineering Text Education</header>
+    <div class="content">
+        Multiple Choice Scenarios
+    </div>
+    <div class="question-box">
+        You receive an urgent email from a well-known colleague of yours requesting you send them the documents from today's meeting as they forgot to download them, you know that you owe them for their help last time you were in a mess. What psychological principle is being used here?
+    </div>
+    <div class="answer-box">
+        <input type="radio" id="authority" name="principle" value="authority">
+        <label for="authority">Authority</label><br>
+        <input type="radio" id="reciprocity" name="principle" value="reciprocity">
+        <label for="reciprocity">Reciprocity</label><br>
+        <input type="radio" id="socialProof" name="principle" value="socialProof">
+        <label for="socialProof">Social Proof</label><br>
+        <input type="radio" id="liking" name="principle" value="liking">
+        <label for="liking">Liking</label><br>
+        <input type="radio" id="scarcity" name="principle" value="scarcity">
+        <label for="scarcity">Scarcity</label><br>
+        <input type="radio" id="consistency" name="principle" value="consistency">
+        <label for="consistency">Consistency</label><br>
+    </div>
+    <div class="feedback" id="feedback">
+    </div>
+    <a href="multipleChoice5.html" class="next-button" id="next-button">Next Scenario</a>
+
+    <script>
+        document.querySelectorAll('input[name="principle"]').forEach((elem) => {
+            elem.addEventListener("change", function(event) {
+                const value = event.target.value;
+                const feedback = document.getElementById("feedback");
+                const nextButton = document.getElementById("next-button");
+                if (value === "reciprocity") {
+                    feedback.style.display = "block";
+                    feedback.textContent = "CORRECT";
+                    nextButton.style.display = "block";
+                } else {
+                    feedback.style.display = "block";
+                    feedback.textContent = "WRONG, TRY AGAIN";
+                    nextButton.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
